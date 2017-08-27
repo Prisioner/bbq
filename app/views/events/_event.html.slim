@@ -1,0 +1,12 @@
+.col-sm-6.col-md-4
+  .thumbnail
+    = content_tag 'div', '', class: 'event-background',
+            style: "background-image: url(#{asset_path('event_thumb.jpg')})"
+
+    .thumbnail-inner.event-info-inner
+      .caption
+        .event-description
+          h3 = link_to event.title, event_path(event)
+          h3
+            small = event.datetime
+          .buffer-both = event.address

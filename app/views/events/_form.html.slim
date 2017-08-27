@@ -1,0 +1,23 @@
+= form_for @event do |f|
+  = render partial: 'partials/form_errors', locals: { model: @event }
+
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :address
+    = f.text_field :address, class: 'form-control'
+
+  .form-group
+    = f.label :datetime
+    p = f.datetime_select :datetime, class: 'form-control'
+
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+
+  .actions
+    = f.submit 'Сохранить', class: 'btn btn-primary'
+    = ' или '
+    = link_to 'вернуться', :back

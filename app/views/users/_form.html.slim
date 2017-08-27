@@ -1,0 +1,15 @@
+= form_for @user, html: { multipart: true } do |f|
+  = render partial: 'partials/form_errors', locals: { model: @user }
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+
+  .actions
+    = f.submit 'Сохранить', class: 'btn btn-primary'
+    = ' или '
+    = link_to 'вернуться', :back

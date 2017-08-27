@@ -1,0 +1,18 @@
+.event
+  .event-info.row
+    .col-md-12
+      = content_tag 'div', '', class: 'event-background',
+              style: "background-image: url(#{asset_path('event.jpg')})"
+
+      .event-info-inner.row
+        .col-md-6
+          .event-description
+            h1 = @event.title
+            h3 = @event.datetime
+            h3
+              small = link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}"
+            p = @event.description
+
+          .buffer-top
+            = link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary'
+            

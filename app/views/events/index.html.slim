@@ -1,0 +1,7 @@
+h1 События
+
+.buffer-both
+  = link_to 'Создать событие', new_event_path, class: 'btn btn-success'
+
+.row.buffer-bottom
+  = render partial: 'events/event', collection: @events

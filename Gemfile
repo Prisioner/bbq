@@ -11,6 +11,7 @@ gem 'puma', '~> 3.7'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'slim-rails'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'sqlite3'
