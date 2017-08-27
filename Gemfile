@@ -10,6 +10,7 @@ gem 'rails', '~> 5.1.3'
 gem 'puma', '~> 3.7'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'sqlite3'
