@@ -11,6 +11,6 @@ class User < ApplicationRecord
   private
 
   def set_name
-    self.name = "Поедатель шашлыка #{rand(9999)}" unless self.name.present?
+    self.name = "Поедатель вкусняшек #{rand(9999)}" unless self.name.present?
   end
 end
