@@ -13,6 +13,6 @@
               small = link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}"
             p = @event.description
 
-          .buffer-top
-            = link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary'
-            
+          - if current_user_can_edit?(@event)
+            .buffer-top
+              = link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary'

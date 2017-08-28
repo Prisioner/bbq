@@ -1,7 +1,16 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   has_many :events
 
   validates :name, presence: true, length: { maximum: 35 }
-  validates :email, presence: true, uniqueness: true, length: { maximum: 255 }
-  validates :email, format: { with: /\A[a-z\d\-_.]+@[a-z\d\-_.]+\z/i }
+
+  before_validation :set_name, on: :create
+
+  private
+
+  def set_name
+    self.name = "Поедатель шашлыка #{rand(9999)}" unless self.name.present?
+  end
 end
