@@ -3,7 +3,7 @@
 - if errors.any?
   .alert.alert-danger
     lead.buffer-bottom
-      = "В вашей форме #{errors.count} ошибок"
+      = "В вашей форме #{t('activerecord.validation.error', count: errors.count)}"
 
     ul
       - errors.full_messages.each do |message|

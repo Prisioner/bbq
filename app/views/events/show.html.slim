@@ -8,7 +8,7 @@
         .col-md-6
           .event-description
             h1 = @event.title
-            h3 = @event.datetime
+            h3 = l @event.datetime, format: :short
             h3
               small = link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}"
             p = @event.description
