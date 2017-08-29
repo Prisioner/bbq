@@ -15,6 +15,12 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      comment:
+        body: 'Текст комментария'
+        user_name: 'Имя'
+      subscription:
+        user_name: 'Имя'
+        user_email: 'Email'
 
     validation:
       error:
@@ -29,6 +35,14 @@ ru:
       destroyed: 'Вы удалили мероприятие :('
     users:
       updated: 'Вы обновили свой профиль'
+    comments:
+      destroyed: 'Комментарий удален'
+      created: 'Ваш комментарий добавлен'
+      error: 'Что-то с комментарием пошло не так'
+    subscriptions:
+      destroyed: 'Участник отписан'
+      created: 'Вы подписаны на это событие'
+      error: 'Подписка/отписка не сработала'
 
   app:
     name: 'Шашлыки'

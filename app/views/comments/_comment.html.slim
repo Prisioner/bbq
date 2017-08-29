@@ -1,0 +1,15 @@
+.buffer-bottom
+  p = comment.body
+  p
+    span
+      - if comment.user.present?
+        = render partial: 'users/user', object: comment.user
+      - else
+        em
+          strong = comment.user_name
+    = ' '
+    em = l comment.created_at, format: :short
+    - if current_user_can_edit?(comment)
+      = ' '
+      = link_to gi_icon('trash'), event_comment_path(comment.event, comment),
+              method: :delete, data: { confirm: 'Вы уверены, что хотите удалить комментарий?' }

@@ -1,0 +1,14 @@
+= form_for [@event, subscription] do |f|
+  = render partial: 'partials/form_errors', locals: { model: subscription }
+
+  - unless signed_in?
+    .form-group
+      = f.label :user_name
+      = f.text_field :user_name, class: 'form-control'
+
+    .form-group
+      = f.label :user_email
+      = f.email_field :user_email, class: 'form-control'
+
+  .actions
+    = f.submit 'Подписаться', class: 'btn btn-primary'

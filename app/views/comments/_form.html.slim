@@ -1,0 +1,14 @@
+= form_for [@event, comment] do |f|
+  = render partial: 'partials/form_errors', locals: { model: comment }
+
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control'
+
+  - unless signed_in?
+    .form-group
+      = f.label :user_name
+      = f.text_field :user_name, class: 'form-control'
+
+  .actions
+    = f.submit 'Отправить', class: 'btn btn-primary'

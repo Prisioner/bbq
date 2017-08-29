@@ -1,0 +1,9 @@
+span.user
+  span.user-avatar
+    = image_tag user_avatar(user), class: 'img-icon'
+  = ' '
+  span.user-name
+    - if request.path == user_path(user)
+      = user.name
+    - else
+      = link_to user.name, user_path(user)

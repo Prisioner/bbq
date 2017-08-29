@@ -1,0 +1,11 @@
+span.subscription
+  = ' '
+  - if subscription.user.present?
+    = render partial: 'users/user', object: subscription.user
+  - else
+    em = subscription.user_name
+
+  - if current_user_can_edit?(subscription)
+    = ' '
+    = link_to gi_icon('remove'), event_subscription_path(subscription.event, subscription),
+            method: :delete, data: { confirm: 'Вы точно хотите отписаться?' }

@@ -18,3 +18,26 @@
               = link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary'
               = link_to 'Удалить', event_path(@event), method: :delete, class: 'btn btn-danger btn-xs pull-right',
                       data: { confirm: 'Вы уверены, что хотите удалить событие?' }
+
+  .row
+    .col-md-8
+      .event-comments.buffer-top
+
+        = render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build }
+
+        .buffer-both
+          = render partial: 'comments/comment', collection: @event.comments.except(@new_comment)
+
+    .col-md-4
+      .event-owner
+        h4 Зовёт:
+        p = render partial: 'users/user', object: @event.user
+      .event-subscriptions
+        h4 Пойдут:
+        div
+          p
+            = render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription)
+      .event-subscription-form
+        h4 Я пойду:
+        div
+          = render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build }
