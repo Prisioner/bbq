@@ -27,6 +27,9 @@ ru:
         one: "%{count} ошибка"
         few: "%{count} ошибки"
         many: "%{count} ошибкок"
+      subscription:
+        email:
+          taken: 'уже принадлежит зарегистрированному пользователю'
 
   controllers:
     events:
