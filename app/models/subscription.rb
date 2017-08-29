@@ -29,7 +29,7 @@ class Subscription < ApplicationRecord
 
   def email_taken
     if User.find_by(email: user_email)
-      errors.add(:user_email, :taken, message: I18n.t('activerecord.validation.subscription.email.taken'))
+      errors.add(:user_email, :registered)
     end
   end
 

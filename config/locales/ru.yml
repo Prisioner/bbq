@@ -27,9 +27,13 @@ ru:
         one: "%{count} ошибка"
         few: "%{count} ошибки"
         many: "%{count} ошибкок"
-      subscription:
-        email:
-          taken: 'уже принадлежит зарегистрированному пользователю'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              taken: 'уже подписан'
+              registered: 'уже принадлежит зарегистрированному пользователю'
 
   controllers:
     events:
