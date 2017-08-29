@@ -37,7 +37,9 @@
         div
           p
             = render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription)
-      .event-subscription-form
-        h4 Я пойду:
-        div
-          = render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build }
+
+      - unless @event.user == current_user || @event.subscribers.include?(current_user)
+        .event-subscription-form
+          h4 Я пойду:
+          div
+            = render partial: 'subscriptions/form', locals: { subscription: @new_subscription || @event.subscriptions.build }
