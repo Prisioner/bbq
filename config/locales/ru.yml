@@ -3,6 +3,9 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      comment: 'Комментарий'
+      subscription: 'Подписка'
+      photo: 'Фотография'
 
     attributes:
       user:
@@ -18,10 +21,12 @@ ru:
         description: 'Описание'
       comment:
         body: 'Текст комментария'
-        user_name: 'Имя'
+        user_name: 'Ваше имя'
       subscription:
         user_name: 'Имя'
         user_email: 'Email'
+      photo:
+        photo: 'Фотография'
 
     validation:
       error:
@@ -51,6 +56,10 @@ ru:
       destroyed: 'Участник отписан'
       created: 'Вы подписаны на это событие'
       error: 'Подписка/отписка не сработала'
+    photos:
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
+      error: 'Что-то пошло не так с фоткой'
 
   app:
     name: 'Шашлыки'

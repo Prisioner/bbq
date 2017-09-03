@@ -2,7 +2,7 @@
   .event-info.row
     .col-md-12
       = content_tag 'div', '', class: 'event-background',
-              style: "background-image: url(#{asset_path('event.jpg')})"
+              style: "background-image: url(#{event_photo(@event)})"
 
       .event-info-inner.row
         .col-md-6
@@ -21,6 +21,12 @@
 
   .row
     .col-md-8
+      .event-photos
+        .event-photos-gallery
+          = render partial: 'photos/photo', collection: @event.photos.except(@new_photo)
+        .event-photo-form
+          = render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build }
+
       .event-comments.buffer-top
 
         = render partial: 'comments/form', locals: { comment: @new_comment || @event.comments.build }

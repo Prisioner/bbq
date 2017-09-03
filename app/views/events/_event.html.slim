@@ -10,3 +10,6 @@
           h3
             small = l event.datetime, format: :short
           .buffer-both = event.address
+        div
+          - event.visitors.each do |user|
+            = image_tag user_avatar_thumb(user), class: 'img-icon', title: user.name
