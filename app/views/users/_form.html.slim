@@ -9,6 +9,11 @@
     = f.label :email
     = f.text_field :email, class: 'form-control'
 
+  .form-group
+    = f.label :avatar
+    p =image_tag(@user.avatar.thumb.url) if @user.avatar?
+    = f.file_field :avatar
+
   .actions
     = f.submit 'Сохранить', class: 'btn btn-primary'
     = ' или '

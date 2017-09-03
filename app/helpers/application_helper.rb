@@ -1,6 +1,10 @@
 module ApplicationHelper
   def user_avatar(user)
-    asset_path('user.jpg')
+    if user.avatar?
+      user.avatar.url
+    else
+      asset_path('user.jpg')
+    end
   end
 
   def gi_icon(icon_class)
