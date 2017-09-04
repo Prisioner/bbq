@@ -55,7 +55,7 @@ class Subscription < ApplicationRecord
       loop do
         new_confirm_token = SecureRandom.urlsafe_base64.to_s.downcase
         next if Subscription.find_by(confirm_token: new_confirm_token)
-        self.confirm_token = new_confirm_token
+        # self.confirm_token = new_confirm_token
         break
       end
     end
