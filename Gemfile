@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-google'
 gem 'google-api-client', '~> 0.8.6'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development, :test do
   gem 'sqlite3'

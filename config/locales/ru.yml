@@ -80,3 +80,7 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+
+  recaptcha:
+    errors:
+      verification_failed: "Пожалуйста, подтвердите, что вы не робот :)"
