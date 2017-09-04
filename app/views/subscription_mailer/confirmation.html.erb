@@ -1,0 +1,16 @@
+<h1><%= t '.greeting' %>, <%= @name %></h1>
+<p><%= t '.explain' %></p>
+<hr/>
+
+<%= t '.event' %>
+
+<h3><%= @event.title %></h3>
+
+<%= t '.datetime' %>
+<h4><%= l @event.datetime %></h4>
+
+<%= t '.owner' %>
+<h4><%= @event.user.name %></h4>
+
+<h4><%= t '.instruction' %> <%= link_to t('.link'), confirm_email_subscription_url(@subscription.confirm_token) %></h4>
+<h4><%= t '.instruction2' %></h4>

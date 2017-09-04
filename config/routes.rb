@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
+
+  resources :subscriptions, only: [], param: :confirm_token do
+    member do
+      get :confirm_email
+    end
+  end
 end

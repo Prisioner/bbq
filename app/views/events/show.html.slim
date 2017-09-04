@@ -42,7 +42,7 @@
         h4 Пойдут:
         div
           p
-            = render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription)
+            = render partial: 'subscriptions/subscription', collection: @event.subscriptions.confirmed.except(@new_subscription)
 
       - unless @event.user == current_user || @event.subscribers.include?(current_user)
         .event-subscription-form

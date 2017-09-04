@@ -9,8 +9,16 @@ class SubscriptionsController < ApplicationController
     if @event.user == current_user
       redirect_to @event, alert: I18n.t('controllers.subscriptions.error')
     elsif @new_subscription.save
-      EventMailer.subscription(@event, @new_subscription).deliver_now
-      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
+
+      if @new_subscription.confirmed?
+        EventMailer.subscription(@event, @new_subscription).deliver_now
+        message = { notice: I18n.t('controllers.subscriptions.created') }
+      else
+        SubscriptionMailer.confirmation(@new_subscription).deliver_now
+        message = { notice: I18n.t('controllers.subscriptions.confirmation_required')}
+      end
+
+      redirect_to @event, message
     else
       render 'events/show', alert: I18n.t('controllers.subscriptions.error')
     end
@@ -26,6 +34,25 @@ class SubscriptionsController < ApplicationController
     end
 
     redirect_to @event, message
+  end
+
+  def confirm_email
+    @subscription = Subscription.find_by(confirm_token: params[:confirm_token])
+    if @subscription.blank?
+      message = { alert: I18n.t('controllers.subscriptions.not_found') }
+      redirect_to root_path, message
+    else
+
+      if @subscription.confirmed?
+        message = { alert: I18n.t('controllers.subscriptions.already_confirmed') }
+      else
+        @subscription.update(confirmed: true)
+        EventMailer.subscription(@subscription.event, @subscription).deliver_now
+        message = { notice: I18n.t('controllers.subscriptions.confirmed') }
+      end
+
+      redirect_to @subscription.event, message
+    end
   end
 
   private

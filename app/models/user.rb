@@ -17,5 +17,9 @@ class User < ApplicationRecord
 
   def link_subscriptions
     Subscription.where(user_id: nil, user_email: self.email).update_all(user_id: self.id)
+    self.subscriptions.not_confirmed.each do |subscription|
+      subscription.update(confirmed: true)
+      EventMailer.subscription(subscription.event, subscription).deliver_now
+    end
   end
 end
