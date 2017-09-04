@@ -16,8 +16,7 @@ gem 'devise-i18n'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'carrierwave'
 gem 'rmagick'
-gem 'fog-google'
-gem 'google-api-client', '~> 0.8.6'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'sqlite3'
