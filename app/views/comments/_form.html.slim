@@ -10,5 +10,8 @@
       = f.label :user_name
       = f.text_field :user_name, class: 'form-control'
 
+    .form-group
+      = recaptcha_tags
+
   .actions
     = f.submit 'Отправить', class: 'btn btn-primary'
