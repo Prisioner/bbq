@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @event.user == current_user
+    if @event.user == current_user || pincode_required?
       redirect_to @event, alert: I18n.t('controllers.subscriptions.error')
     elsif @new_subscription.save
 
@@ -67,5 +67,9 @@ class SubscriptionsController < ApplicationController
 
   def subscription_params
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
+  end
+
+  def pincode_required?
+    @event.pincode.present? && !@event.pincode_valid?(cookies.permanent["events_#{@event.id}_pincode"])
   end
 end
