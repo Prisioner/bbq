@@ -26,7 +26,8 @@
     .col-md-8
       .event-photos
         .event-photos-gallery
-          = render partial: 'photos/photo', collection: @event.photos.except(@new_photo)
+          .owl-carousel
+            = render partial: 'photos/photo', collection: @event.photos.except(@new_photo)
 
         - if signed_in?
           .event-photo-form
