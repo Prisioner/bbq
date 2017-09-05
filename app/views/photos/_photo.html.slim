@@ -1,3 +1,15 @@
-.event-photo.buffer-both
-  = link_to image_tag(photo.photo.thumb.url), photo.photo.url
-  
+- if photo.user.present?
+  - user = render partial: 'users/user', object: photo.user
+- else
+  - user = '<i>Удаленный пользователь</i>'
+
+- title = "Добавил #{user}"
+
+- if current_user_can_edit?(photo)
+  - title += ' '
+  - title += link_to gi_icon('trash'), event_photo_path(photo.event, photo),
+          method: :delete, data: {confirm: 'Вы уверены, что хотите удалить фотку?'}
+
+.event-photo.buffer-bottom
+  = link_to image_tag(photo.photo.thumb.url, class: 'example-image'), photo.photo.url,
+          data: { toggle: 'lightbox', gallery: "event-#{photo.event.id}", title: title }, class: 'example-image-link'
