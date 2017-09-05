@@ -1,3 +1,3 @@
 $(function(){
-  $(".owl-carousel").owlCarousel();
+  $(".event-photos-gallery").owlCarousel();
 });
