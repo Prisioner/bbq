@@ -83,6 +83,12 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+    photo:
+      title: 'Новое фото'
+      author: 'Загрузил(а)'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
 
   subscription_mailer:
     confirmation:
