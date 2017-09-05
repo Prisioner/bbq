@@ -89,6 +89,7 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+      source: 'Страничка события:'
 
   subscription_mailer:
     confirmation:
