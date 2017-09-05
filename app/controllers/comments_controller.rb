@@ -6,7 +6,9 @@ class CommentsController < ApplicationController
     @new_comment = @event.comments.build(comment_params)
     @new_comment.user = current_user
 
-    if check_captcha(@new_comment) && @new_comment.save
+    if pincode_required?
+      redirect_to @event, alert: I18n.t('controllers.comments.error')
+    elsif check_captcha(@new_comment) && @new_comment.save
       notify_subscribers(@event, @new_comment)
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
@@ -47,5 +49,11 @@ class CommentsController < ApplicationController
     all_emails.each do |email|
       EventMailer.comment(event, comment, email).deliver_now
     end
+  end
+
+  def pincode_required?
+    @event.user != current_user &&
+      @event.pincode.present? &&
+      !@event.pincode_valid?(cookies.permanent["events_#{@event.id}_pincode"])
   end
 end
