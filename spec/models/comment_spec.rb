@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  describe 'validations check' do
+  describe 'associations and validations check' do
     it { should belong_to :event }
     it { should belong_to :user }
 
