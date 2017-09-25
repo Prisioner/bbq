@@ -4,6 +4,7 @@ FactoryGirl.define do
     description "Вечеринка у Децла дома"
     address "дом Децла"
     datetime DateTime.parse('31.12.2017 18:00')
+    pincode nil
 
     association :user
   end
