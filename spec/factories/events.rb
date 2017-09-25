@@ -5,6 +5,6 @@ FactoryGirl.define do
     address "дом Децла"
     datetime DateTime.parse('31.12.2017 18:00')
 
-    assosiation :user
+    association :user
   end
 end

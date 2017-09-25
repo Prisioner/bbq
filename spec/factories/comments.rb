@@ -3,10 +3,10 @@ FactoryGirl.define do
     body "Рандомный коммент"
     user_name "Дядя Жора"
 
-    assosiation :event
+    association :event
 
     factory :comment_with_author do
-      assosiation :user
+      association :user
     end
   end
 end

@@ -5,10 +5,10 @@ FactoryGirl.define do
     confirmed true
     sequence(:confirm_token) { |n| "token#{n}" }
 
-    assosiation :event
+    association :event
 
     factory :subscription_with_user do
-      assosiation :user
+      association :user
     end
   end
 end
