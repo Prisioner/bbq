@@ -50,7 +50,11 @@ class EventsController < ApplicationController
   private
 
   def set_current_user_event
-    @event = current_user.events.find(params[:id])
+    begin
+      @event = current_user.events.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to events_path, alert: I18n.t('controllers.events.error')
+    end
   end
 
   def set_event
