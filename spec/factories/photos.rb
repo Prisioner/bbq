@@ -5,4 +5,8 @@ FactoryGirl.define do
     association :event
     association :user
   end
+
+  factory :invalid_photo, class: 'Photo' do
+    photo nil
+  end
 end

@@ -8,4 +8,10 @@ FactoryGirl.define do
 
     association :user
   end
+
+  factory :invalid_event, class: 'Event' do
+    title nil
+    address nil
+    datetime nil
+  end
 end
