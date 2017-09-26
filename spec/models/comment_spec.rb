@@ -10,7 +10,7 @@ RSpec.describe Comment, type: :model do
     it { should_not validate_presence_of :user }
 
     context 'user is present' do
-      subject { Comment.new(user: FactoryGirl.create(:user)) }
+      subject { Comment.new(user: create(:user)) }
       it { should_not validate_presence_of :user_name }
     end
 
@@ -21,8 +21,8 @@ RSpec.describe Comment, type: :model do
 
   describe '#user_name' do
     context 'user is present' do
-      let(:user) { FactoryGirl.create(:user, name: 'Петя') }
-      let(:comment) { FactoryGirl.create(:comment_with_author, user: user, user_name: 'Вася') }
+      let(:user) { create(:user, name: 'Петя') }
+      let(:comment) { create(:comment_with_author, user: user, user_name: 'Вася') }
 
       it 'returns name of registered user' do
         expect(comment.user_name).to eq 'Петя'
@@ -30,7 +30,7 @@ RSpec.describe Comment, type: :model do
     end
 
     context 'user is blank' do
-      let(:comment) { FactoryGirl.create(:comment, user_name: 'Анонимус') }
+      let(:comment) { create(:comment, user_name: 'Анонимус') }
 
       it 'returns user_name' do
         expect(comment.user_name).to eq 'Анонимус'

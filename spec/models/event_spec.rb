@@ -16,17 +16,17 @@ RSpec.describe Event, type: :model do
   end
 
   describe '#visitors' do
-    let(:owner) { FactoryGirl.create(:user, email: 'owner@ex.com') }
+    let(:owner) { create(:user, email: 'owner@ex.com') }
 
-    let!(:user1) { FactoryGirl.create(:user, email: 'sbscrbr1@ex.com') }
-    let!(:user2) { FactoryGirl.create(:user, email: 'sbscrbr2@ex.com') }
-    let!(:user3) { FactoryGirl.create(:user, email: 'not_subscriber@ex.com') }
+    let!(:user1) { create(:user, email: 'sbscrbr1@ex.com') }
+    let!(:user2) { create(:user, email: 'sbscrbr2@ex.com') }
+    let!(:user3) { create(:user, email: 'not_subscriber@ex.com') }
 
-    let(:event) { FactoryGirl.create(:event, user: owner) }
+    let(:event) { create(:event, user: owner) }
 
-    let!(:subscription1) { FactoryGirl.create(:subscription, event: event, user_email: 'anon_subscriber@ex.com' ) }
-    let!(:subscription2) { FactoryGirl.create(:subscription_with_user, event: event, user: user1) }
-    let!(:subscription3) { FactoryGirl.create(:subscription_with_user, event: event, user: user2) }
+    let!(:subscription1) { create(:subscription, event: event, user_email: 'anon_subscriber@ex.com' ) }
+    let!(:subscription2) { create(:subscription_with_user, event: event, user: user1) }
+    let!(:subscription3) { create(:subscription_with_user, event: event, user: user2) }
 
     it 'returns array of Users' do
       expect(event.visitors).to all be_an_instance_of User
@@ -42,7 +42,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe '#pincode_valid?' do
-    let(:event) { FactoryGirl.create(:event, pincode: '1234') }
+    let(:event) { create(:event, pincode: '1234') }
 
     context 'valid pincode given' do
       it 'returns true' do

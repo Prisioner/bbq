@@ -12,9 +12,9 @@ RSpec.describe User, type: :model do
   end
 
   describe '#link_subscriptions' do
-    let!(:subscription1) { FactoryGirl.create(:subscription, user_email: 'user123@example.com') }
-    let!(:subscription2) { FactoryGirl.create(:subscription, confirmed: false, user_email: 'user123@example.com') }
-    let!(:user) { FactoryGirl.build(:user, email: 'user123@example.com') }
+    let!(:subscription1) { create(:subscription, user_email: 'user123@example.com') }
+    let!(:subscription2) { create(:subscription, confirmed: false, user_email: 'user123@example.com') }
+    let!(:user) { build(:user, email: 'user123@example.com') }
 
     it 'confirms not-confirmed subscription' do
       user.save
