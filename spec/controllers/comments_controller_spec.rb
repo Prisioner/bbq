@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe CommentsController do
+describe CommentsController, type: :controller do
   let!(:owner) { create(:user) }
   let!(:event) { create(:event, user: owner) }
   let!(:user) { create(:user) }
