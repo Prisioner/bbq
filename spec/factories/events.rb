@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :event do
-    sequence(:title) { |n| "Событие №#{n}" }
+    title "Супервечеринка"
     description "Вечеринка у Децла дома"
     address "дом Децла"
     datetime DateTime.parse('31.12.2017 18:00')
