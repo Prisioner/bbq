@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
         message = { notice: I18n.t('controllers.subscriptions.created') }
       else
         SubscriptionMailer.confirmation(@new_subscription).deliver_now
-        message = { notice: I18n.t('controllers.subscriptions.confirmation_required')}
+        message = { notice: I18n.t('controllers.subscriptions.confirmation_required') }
       end
 
       redirect_to @event, message
