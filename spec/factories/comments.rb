@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :comment do
     body "Рандомный коммент"
     user_name "Дядя Жора"

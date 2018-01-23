@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :event do
     title "Супервечеринка"
     description "Вечеринка у Децла дома"

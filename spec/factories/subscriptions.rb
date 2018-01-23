@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :subscription do
     user_name { "Подписчег №#{rand(123)}" }
     sequence(:user_email) { |n| "subscriber#{n}@example.com" }
