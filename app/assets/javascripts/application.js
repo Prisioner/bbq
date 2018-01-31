@@ -15,3 +15,7 @@
 //= require twitter/bootstrap
 //= require owl.carousel
 //= require_tree .
+
+var submitInvisibleRecaptchaForm = function () {
+  document.getElementById("invisible-recaptcha-form").submit();
+};

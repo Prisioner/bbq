@@ -1,4 +1,4 @@
-= form_for [@event, comment] do |f|
+= form_for [@event, comment], html: {id: 'invisible-recaptcha-form'} do |f|
   = render partial: 'partials/form_errors', locals: { model: comment }
 
   .form-group
@@ -10,8 +10,8 @@
       = f.label :user_name
       = f.text_field :user_name, class: 'form-control'
 
-    .form-group
-      = recaptcha_tags
-
   .actions
-    = f.submit 'Отправить', class: 'btn btn-primary'
+    -if signed_in?
+      = f.submit 'Отправить', class: 'btn btn-primary'
+    -else
+      = invisible_recaptcha_tags callback: 'submitInvisibleRecaptchaForm', text: 'Отправить', class: 'btn btn-primary'
