@@ -75,7 +75,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.18)
+    ffi (1.9.25)
     fog-core (1.45.0)
       builder
       excon (~> 0.58)
@@ -300,4 +300,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.2
+   1.16.4
